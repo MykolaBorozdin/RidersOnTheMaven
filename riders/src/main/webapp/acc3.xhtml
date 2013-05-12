@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template.xhtml">
+	<ui:define name="pageStuff">
+		<h:form>
+		<h:commandButton value="#{text.previousPage}"
+				action="#{checksBean.goToPreviousPage()}">
+			</h:commandButton>
+			<h:outputLabel
+				value="#{checksBean.paginator.currentPage}/#{checksBean.paginator.getMaxPage()}" />
+			<h:commandButton value="#{text.nextPage}"
+				action="#{checksBean.goToNextPage()}">
+			</h:commandButton>
+			<h:messages id="err" />
+			<br />
+			<h:dataTable value="#{checksBean.requestList}" var="currentReq"
+				id="requestTable" border="1" cellpadding="2" cellspacing="0"
+				style="border:solid 1px">
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.driverCode}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.driver.idDriver}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.driverName}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.driver.fullName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.requestStatus}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.requestStatus}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.startRequestDate}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.startRequestDate}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.completeRequestDate}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.endRequestDate}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.startSalaryDate}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.startSalaryDate}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="#{text.endSalaryDate}" />
+					</f:facet>
+					<h:outputLabel value="#{currentReq.endSalaryDate}" />
+				</h:column>
+				<h:column>
+					<h:commandButton action="#{checksBean.printCheck}" value="#{text.printCheck}"/>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<h:button outcome="index" value="#{text.back}" />
+	</ui:define>
+</ui:composition>
+</html>

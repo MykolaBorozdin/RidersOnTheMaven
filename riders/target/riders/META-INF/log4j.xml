@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration> 
+
+  <appender name="LOG-FILE-APPENDER" class="org.apache.log4j.FileAppender">
+    <param name="file" value="Riders.log"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ISO8601} [%5p] %c %m at %l%n"/>
+    </layout>
+  </appender>
+
+  
+  <root>
+    <priority value="ALL"/>
+    
+    <appender-ref ref="LOG-FILE-APPENDER"/>
+  </root>
+
+</log4j:configuration>

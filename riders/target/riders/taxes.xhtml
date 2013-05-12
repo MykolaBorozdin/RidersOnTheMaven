@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="template.xhtml">
+	<ui:define name="pageStuff">
+		<h:form>
+			<h:outputLabel value="#{text.taxes}"/>
+			<h:selectBooleanCheckbox id="taxBox" value="#{processRequestTable.useCurrentTax}">
+				<f:ajax event="change" render="@form"/>
+			</h:selectBooleanCheckbox>
+			<h:selectOneMenu id="taxMenu" value="#{processRequestTable.currentTax}" valueChangeListener="#{processRequestTable.taxChanged}">
+				<f:selectItems value="#{processRequestTable.taxes}"/>
+				<f:ajax event="change" render="@form"/>
+			</h:selectOneMenu>
+			<h:outputLabel value="#{text.taxDescrition}" id="taxDescription"/>
+			<h:outputLabel value="#{processRequestTable.currentTax.description}"/>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{text.driverCode}"/>
+				<h:outputLabel value="#{processRequestTable.currentRequest.driver.idDriver}"/>
+				<h:outputLabel value="#{text.driverName}"/>
+				<h:outputLabel value="#{processRequestTable.currentRequest.driver.fullName}"/>
+				<h:outputLabel value="#{text.startWorkingDate}"/>
+				<h:outputLabel value="#{processRequestTable.currentRequest.driver.startDate}"/>
+				<h:outputLabel value="#{text.citizenship}"/>
+				<h:outputLabel value="#{processRequestTable.currentRequest.driver.citizenship}"/>
+				<h:outputLabel value="#{text.passportCode}"/>
+				<h:outputLabel value="#{processRequestTable.currentRequest.driver.passportCode}"/>
+			</h:panelGrid>
+			<h:commandButton action="#{processRequestTable.countTaxes()}" value="#{text.countTaxes}"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+
+	<application>
+		<locale-config>
+			<default-locale>ru</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>uk</supported-locale>
+		</locale-config>
+
+		<resource-bundle>
+			<base-name>locale.text</base-name>
+			<var>text</var>
+		</resource-bundle>
+
+	</application>
+	<navigation-rule>
+		<from-view-id>/acc2.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{processRequestTable.editRequest()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/editProcessRequest.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/editProcessRequest.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{processRequestTable.countCleanSalary()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/bonuses.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<converter>
+		<converter-for-class>entities.SalaryBonus</converter-for-class>
+		<converter-class>converters.SalaryBonusConverter</converter-class>
+	</converter>
+	<converter>
+		<converter-for-class>entities.SalaryTax</converter-for-class>
+		<converter-class>converters.SalaryTaxConverter</converter-class>
+	</converter>
+</faces-config>

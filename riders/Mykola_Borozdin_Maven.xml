@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.epam.riders</groupId>
+  <artifactId>riders</artifactId>
+  <packaging>war</packaging>
+  <version>0.01</version>
+  <name>riders Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.4</version>
+</dependency>
+<dependency>
+	<groupId>org.mockito</groupId>
+	<artifactId>mockito-all</artifactId>
+	<version>1.9.5</version>
+</dependency>
+	 <dependency>
+    <groupId>javax</groupId>
+    <artifactId>javaee-api</artifactId>
+    <version>6.0</version>
+   </dependency>
+   <dependency>
+    <groupId>nl.jqno.equalsverifier</groupId>
+    <artifactId>equalsverifier</artifactId>
+    <version>1.1.3</version>
+   </dependency>
+   <dependency>
+      <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>2.2.2</version>
+   </dependency>
+     <dependency>
+    <groupId>org.glassfish.maven.plugin</groupId>
+    <artifactId>maven-glassfish-plugin</artifactId>
+    <version>2.1</version>
+    <type>maven-plugin</type>
+   </dependency>
+  </dependencies>
+  <build>
+    <finalName>riders</finalName>
+	  <plugins>
+   <plugin>
+    <groupId>org.glassfish.maven.plugin</groupId>
+    <artifactId>maven-glassfish-plugin</artifactId>
+    <version>2.1</version>
+    <configuration>
+     <terse>false</terse>
+     <echo>true</echo>
+     <debug>true</debug>
+     <glassfishDirectory>C:\Users\Mykola_Borozdin\Documents\Java\glassfish3\glassfish</glassfishDirectory>
+     <user>admin</user>
+     <adminPassword>admin</adminPassword>
+     <domain>
+      <name>mavenDomain</name>
+      <host>localhost</host>
+      <adminPort>4848</adminPort>    
+      <httpPort>8080</httpPort>
+     </domain>
+   
+     <components>
+      <component>
+       <name>${project.artifactId}</name>
+       <artifact>${project.build.directory}/${project.artifactId}.war</artifact>
+      </component>
+     </components>
+    </configuration>
+   </plugin>
+  </plugins>
+  </build>
+</project>

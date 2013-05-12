@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="template.xhtml">
+	<ui:define name="pageStuff">
+		<h:form id="createReq">
+			<h:panelGrid columns="2">
+			<h:outputLabel value="#{text.driverCode}" />
+			<h:outputLabel value="#{createRequest.id}" />
+			<h:outputLabel value="#{text.driverName}" />
+			<h:outputLabel value="#{createRequest.getDriverName()}" />
+			<h:outputLabel value="#{text.startRequestDate}"/>
+			<h:outputLabel value="#{createRequest.salaryRequest.startRequestDate}" binding="#{startRequestDate}" id="startRequestDate">
+				<f:convertDateTime pattern="dd.MM.yyyy"/>
+			</h:outputLabel>
+			<h:outputLabel value="#{text.completeRequestDate}" />
+			<h:inputText value="#{createRequest.salaryRequest.endRequestDate}">
+				<f:convertDateTime pattern="dd.MM.yyyy"/>
+				<f:validator validatorId = "requestDateValidator"/>
+				<f:attribute name="startRequestDate" value="#{startRequestDate}"/>
+				<f:ajax event="change" execute="@form"/>
+			</h:inputText>
+			<h:outputLabel value="#{text.startSalaryDate}" />
+			<h:inputText value="#{createRequest.salaryRequest.startSalaryDate}" binding="#{startSalaryDate}" id="startSalaryDate">
+				<f:convertDateTime pattern="dd.MM.yyyy"/>
+			</h:inputText>
+			<h:outputLabel value="#{text.till}" />
+			<h:inputText value="#{createRequest.salaryRequest.endSalaryDate}">
+				<f:convertDateTime pattern="dd.MM.yyyy"/>
+				<f:validator validatorId = "salaryDateValidator"/>
+				<f:attribute name="startSalaryDate" value="#{startSalaryDate}"/>
+				<f:ajax event="change" execute="@form"/>
+			</h:inputText>
+			</h:panelGrid>
+			<br />
+			
+			<h:messages/>
+			<h:commandButton action="#{createRequest.create}" value="#{text.createNewRequest}" ajax="true">
+			</h:commandButton>
+		</h:form>
+		<br/>
+		<h:button value="#{text.back}" outcome="addRequest"/>
+	</ui:define>
+</ui:composition>
+</html>
