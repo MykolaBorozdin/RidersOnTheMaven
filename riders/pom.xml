@@ -51,11 +51,11 @@
      <terse>false</terse>
      <echo>true</echo>
      <debug>true</debug>
-     <glassfishDirectory>C:\Users\Mykola_Borozdin\Documents\Java\glassfish3\glassfish</glassfishDirectory>
+     <glassfishDirectory>C:\servers\glassfish3\glassfish</glassfishDirectory>
      <user>admin</user>
      <adminPassword>admin</adminPassword>
      <domain>
-      <name>mavenDomain</name>
+      <name>domain1</name>
       <host>localhost</host>
       <adminPort>4848</adminPort>    
       <httpPort>8080</httpPort>

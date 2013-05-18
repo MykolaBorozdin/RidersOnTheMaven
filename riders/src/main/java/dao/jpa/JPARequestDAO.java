@@ -61,10 +61,11 @@ public class JPARequestDAO extends JPAAbstractDAO<SalaryRequest> implements
 		}
 		EntityManager em = getEntityManager();
 		List<Integer> idList = em.createQuery(GET_TRIP_ID_LIST_BY_DRIVER, Integer.class).setParameter("driv", driv.getIdDriver()).getResultList();
-		if (idList.size() == 0) {
+		Double result = em.createQuery(GET_DIRTY_SALARY, Double.class).setParameter("idList", idList).setParameter("start", start).setParameter("end", end).getSingleResult();
+		if (idList.size() == 0 || result == null) {
 			return 0.0;
 		}
-		return em.createQuery(GET_DIRTY_SALARY, Double.class).setParameter("idList", idList).setParameter("start", start).setParameter("end", end).getSingleResult();
+		return result;
 	}
 
 }
