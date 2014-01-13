@@ -11,7 +11,7 @@
 			<h:selectBooleanCheckbox id="taxBox" value="#{processRequestTable.useCurrentTax}">
 				<f:ajax event="change" render="@form"/>
 			</h:selectBooleanCheckbox>
-			<h:selectOneMenu id="taxMenu" value="#{processRequestTable.currentTax}" valueChangeListener="#{processRequestTable.taxChanged}">
+			<h:selectOneMenu id="taxMenu" class="dropmenu" value="#{processRequestTable.currentTax}" valueChangeListener="#{processRequestTable.taxChanged}">
 				<f:selectItems value="#{processRequestTable.taxes}"/>
 				<f:ajax event="change" render="@form"/>
 			</h:selectOneMenu>

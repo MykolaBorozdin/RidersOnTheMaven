@@ -7,7 +7,7 @@
 <ui:composition template="template.xhtml">
 	<ui:define name="pageStuff">
 		<h:form>
-			<h:outputLabel value="#{checksBean.checkText}"/>
+			<h:outputLabel escape="false" value="#{checksBean.checkText}"/>
 			<h:button outcome="acc3" value="#{text.back}"/>
 		</h:form>
 	</ui:define>

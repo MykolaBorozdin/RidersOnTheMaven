@@ -16,7 +16,7 @@
 			<base-name>locale.text</base-name>
 			<var>text</var>
 		</resource-bundle>
-
+<resource-handler>resource.UnmappedResourceHandler</resource-handler>
 	</application>
 	<navigation-rule>
 		<from-view-id>/acc2.xhtml</from-view-id>

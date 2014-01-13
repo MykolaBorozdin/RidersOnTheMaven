@@ -6,7 +6,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="template.xhtml">
 	<ui:define name="pageStuff">
-	<b> Please, choose the table you want to edit: </b>
+	<b> #{text.chooseTable}</b>
 	<br/>
 	<h:button outcome="acc1" value="#{text.requests}" />
 	<br/>

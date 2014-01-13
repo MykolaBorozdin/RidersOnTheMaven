@@ -11,7 +11,7 @@
 			<h:selectBooleanCheckbox id="bonusBox" value="#{processRequestTable.useCurrentBonus}">
 				<f:ajax event="change" render="@form"/>
 			</h:selectBooleanCheckbox>
-			<h:selectOneMenu id="bonusMenu" value="#{processRequestTable.currentBonus}" valueChangeListener="#{processRequestTable.bonusChanged}">
+			<h:selectOneMenu id="bonusMenu" class="dropmenu" value="#{processRequestTable.currentBonus}" valueChangeListener="#{processRequestTable.bonusChanged}">
 				<f:selectItems value="#{processRequestTable.bonuses}"/>
 				<f:ajax event="change" render="@form"/>
 			</h:selectOneMenu>

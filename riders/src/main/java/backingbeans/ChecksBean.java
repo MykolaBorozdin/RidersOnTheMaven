@@ -90,12 +90,12 @@ private String checkText;
 	public String printCheck() {
 		SalaryRequest currentRequest = requestList.getRowData();
 		checkText = "";
-		checkText += currentRequest.getDriver().getFullName() + '\n';
-		checkText += currentRequest.getDriver().getPassportCode() + '\n';
-		checkText += currentRequest.getDriver().getCitizenship().toString() + '\n';
-		checkText += currentRequest.getStartSalaryDate().toString() + '\n';
-		checkText += currentRequest.getEndSalaryDate().toString() + '\n';
-		checkText += currentRequest.getSalary().toString() + '\n';
+		checkText += currentRequest.getDriver().getFullName() + "<br/>";
+		checkText += currentRequest.getDriver().getPassportCode() + "<br/>";
+		checkText += currentRequest.getDriver().getCitizenship().toString() + "<br/>";
+		checkText += currentRequest.getStartSalaryDate().toString() + "<br/>";
+		checkText += currentRequest.getEndSalaryDate().toString() + "<br/>";
+		checkText += currentRequest.getSalary().toString() + "<br/>";
 		return "check.xhtml?faces-rediresct=true";
 	}
 
