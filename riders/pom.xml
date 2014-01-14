@@ -51,7 +51,7 @@
      <terse>false</terse>
      <echo>true</echo>
      <debug>true</debug>
-     <glassfishDirectory>C:\servers\glassfish3\glassfish</glassfishDirectory>
+     <glassfishDirectory>C:\glassfish3\glassfish</glassfishDirectory>
      <user>admin</user>
      <adminPassword>admin</adminPassword>
      <domain>

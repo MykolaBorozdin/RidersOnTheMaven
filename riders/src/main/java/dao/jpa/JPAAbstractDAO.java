@@ -82,8 +82,8 @@ private final String PERSISTENCE_UNIT = "Riders";
 	}
 	
 	public List<T> findInRange(long start, long end) {
-		if (start >= end) {
-			throw new IllegalArgumentException("start>=end");
+		if (start >= end && start != 0) {
+			throw new IllegalArgumentException("start>=end" + " where start == " + start);
 		}
 		EntityManager em = getEntityManager();
 		return em.createQuery(FIND_ALL, this.clazz).setFirstResult((int)start).setMaxResults((int)end - (int)start + 1).getResultList();
